@@ -34,3 +34,14 @@ Reproduce pattern:
 1. Resolve latest filing via SEC submissions endpoint
 2. Extract core metrics and management guidance
 3. Render short summary + 3 risk highlights
+
+
+## Quick Run
+
+Generate 4 sample reports:
+
+```bash
+python3 scripts/generate_sample_reports.py
+```
+
+Output path: `examples/generated/`
