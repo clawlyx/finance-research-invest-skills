@@ -1,0 +1,29 @@
+name: Discord Notify
+
+on:
+  push:
+    branches: [ main ]
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord notification
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK_URL" ]; then
+            echo "Missing DISCORD_WEBHOOK_URL secret"
+            exit 1
+          fi
+
+          if [ "${{ github.event_name }}" = "release" ]; then
+            MSG="🚀 New release: ${{ github.event.release.tag_name }} in ${{ github.repository }}\n${{ github.event.release.html_url }}"
+          else
+            MSG="✅ New push to main in ${{ github.repository }}\nCommit: ${{ github.sha }}\n${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+          fi
+
+          jq -n --arg content "$MSG" '{content: $content}' | \
+          curl -sS -X POST -H 'Content-Type: application/json' -d @- "$DISCORD_WEBHOOK_URL"
