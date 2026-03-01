@@ -1,0 +1,14 @@
+{
+  "ticker": "AAPL",
+  "form_type": "10-K",
+  "filing_date": "2025-10-31",
+  "latest_10k_accession": "0000320193-25-000079",
+  "cik": "0000320193",
+  "source_url": "https://data.sec.gov/submissions/CIK0000320193.json",
+  "revenue": null,
+  "net_income": null,
+  "eps": null,
+  "cash_flow": null,
+  "summary": "Primary document parsing required to generate a summary",
+  "risk_highlights": []
+}
