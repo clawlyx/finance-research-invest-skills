@@ -21,3 +21,16 @@ Skills follow the OpenClaw Skill spec:
 ## License
 
 MIT
+
+
+## Sample Reports
+
+- `examples/reports/AAPL-earnings-sample.md`
+- `examples/reports/NVDA-earnings-sample.md`
+- `examples/reports/CRCL-earnings-sample.md`
+- `examples/reports/HOOD-earnings-sample.md`
+
+Reproduce pattern:
+1. Resolve latest filing via SEC submissions endpoint
+2. Extract core metrics and management guidance
+3. Render short summary + 3 risk highlights
